@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Werehouse</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.min.css">
@@ -22,13 +23,115 @@
             <input class="header__search-input" type="text" placeholder="Enter your keyboard">
             <button class="header__search-btn" type="submit"><i class="header__search-icon fas fa-search"></i></button>
           </form>
-          <ul class="header__list d-lg-flex align-items-center d-none">
-            <li class="header__item"><button class="header__btn"><i class="header__icon fal fa-user"></i></button></li>
+          <ul class="header__list">
+            <li class="header__item"><button class="header__btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="header__icon fal fa-user"></i></button></li>
+
+            <!-- Modal -->
+            <div class="header__modal modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="header__modal-dialog modal-dialog">
+                <div class="modal-content">
+                  <div class="header__modal-header modal-header">
+                    <button type="button" class="header__modal-close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body row px-5">
+
+                    <div class="col">
+                      <h3 class="header__form-title">Create an account</h3>
+                      <p class="header__form-text">No account? Create one here:</p>
+                      <form action="https://echo.htmlacademy.ru/">
+                        <div class="header__form-box d-flex align-items-center">
+                          <label class="header__form-label" for="fname"><i class="header__form-icon fal fa-user"></i></label>
+                          <input class="header__form-input" id="fname" name="fname" type="text" placeholder="First name" required>
+                        </div>
+                        <div class="header__form-box d-flex align-items-center">
+                          <label class="header__form-label" for="sname"><i class="header__form-icon fal fa-user"></i></label>
+                          <input class="header__form-input" id="sname" name="sname" type="text" placeholder="Last name" required>
+                        </div>
+                        <div class="header__form-box d-flex align-items-center">
+                          <label class="header__form-label" for="email"><i class="header__form-icon fal fa-envelope"></i></label>
+                          <input class="header__form-input" id="email" name="email" type="text" placeholder="Email" required>
+                        </div>
+                        <div class="header__form-box d-flex align-items-center">
+                          <label class="header__form-label" for="password"><i class="header__form-icon fal fa-unlock"></i></label>
+                          <input class="header__form-input" id="password" name="password" type="text" placeholder="Password" required>
+                        </div>
+                        <div class="header__form-check form-check d-flex align-items-center">
+                          <input class="header__form-check-input form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                          <label class="header__form-check-label form-check-label" for="flexCheckDefault">Sign up for our newsletter</label>
+                        </div>
+                        <button class="header__form-btn btn" type="submit">REGISTER</button>
+                      </form>
+                    </div>
+
+                    <div class="col">
+                      <h3 class="header__form-title">Login</h3>
+                      <p class="header__form-text">Insert your account information:</p>
+                      <form action="https://echo.htmlacademy.ru/">
+                        <div class="header__form-box d-flex align-items-center">
+                          <label class="header__form-label" for="emails"><i class="header__form-icon fal fa-envelope"></i></label>
+                          <input class="header__form-input" id="emails" name="email" type="text" placeholder="Email" required>
+                        </div>
+                        <div class="header__form-box d-flex align-items-center">
+                          <label class="header__form-label" for="passwords"><i class="header__form-icon fal fa-unlock"></i></label>
+                          <input class="header__form-input passw" id="passwords" name="password" type="password" placeholder="Password" required>
+                          <span class="header__password-btn"><i class="header__password-icon far fa-eye"></i></span>
+                        </div>
+                        <div class="header__form-box d-flex align-items-center">
+                          <i class="header__form-email-icon fas fa-envelope"></i>
+                          <p class="header__form-pretext mb-0">Forgot your</p>
+                          <a class="header__form-link" href="#">Password?</a>
+                        </div>
+                        <button class="header__form-btn btn" type="submit">LOGIN</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <li class="header__item"><button class="header__btn"><i class="header__icon fal fa-heart"></i></button></li>
             <li class="header__item"><button class="header__btn"><i class="header__icon fal fa-shopping-basket"></i></button><span class="header__count">0</span></li>
-            <li class="header__item"><button class="header__btn"><i class="header__icon fal fa-cog"></i></button></li>
+            
+            <li class="header__item"><button class="header__btn"  data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="header__icon fal fa-cog"></i></button>
+              <div class="header__collapse collapse" id="collapseExample">
+                <div class="collapse__offcanvas-body offcanvas-body">
+                  <ul class="collapse__list">
+                    <li class="collapse__item d-flex align-items-center"><i class="collapse__icon fas fa-cog"></i><a class="collapse__link" href="#">log in</a></li>
+                    <li class="collapse__item d-flex align-items-center"><i class="collapse__icon fal fa-sign-out"></i><a class="collapse__link" href="#">register account</a></li>
+                    <li class="collapse__item d-flex align-items-center"><i class="collapse__icon fas fa-check-circle"></i><a class="collapse__link" href="#">check out</a></li>
+                    <li class="collapse__item d-flex align-items-center"><i class="collapse__icon fas fa-heart"></i><a class="collapse__link" href="#">my wishlist</a></li>
+                  </ul>
+                  <p class="collapse__text mb-0">CURRENCY</p>
+                  <ul class="d-flex">
+                    <li><a class="collapse__link ms-0" href="#">USD</a></li>
+                    <li><a class="collapse__link" href="#">EUR</a></li>
+                    <li><a class="collapse__link" href="#">GBP</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
           </ul>
-          <button class="header__menu d-block d-md-none"><i class="header__menu-icon fal fa-bars"></i></button>
+          <!-- canvas -->
+
+          <button class="menu__btn btn p-0 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="header__menu-icon fal fa-bars"></i></button>
+
+          <div class="offcanvas w-75 offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header p-0">
+              <button type="button" class="canvas__btn text-reset d-flex align-items-center m-auto" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fal fa-times"></i></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="inner__list">
+                <li class="inner__item"><a class="inner__link" href="#">home</a></li>
+                <li class="inner__item"><a class="inner__link" href="#">all demos</a></li>
+                <li class="inner__item"><a class="inner__link" href="#">pages</a></li>
+                <li class="inner__item"><a class="inner__link" href="#">categories</a></li>
+                <li class="inner__item"><a class="inner__link" href="#">blog</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- canvas end -->
+
         </div>
         <ul class="header__list d-lg-none align-items-center d-flex justify-content-evenly">
           <li class="header__item"><button class="header__btn"><i class="header__icon text-black fal fa-home-alt"></i><p class="header__menu-text">Home</p></button></li>
@@ -39,10 +142,927 @@
         </ul>
       </div>
     </header>
-    <div class="site-hero hero">
+    <div class="header__navbars navbars">
+      <div class="navbars__container container">
+        <ul class="navbars__list d-none d-lg-flex align-items-center justify-content-center">
+          <li class="navbars__item navbars__item-active"><a class="navbars__link" href="#">home</a></li>
+          <li class="navbars__item"><a class="navbars__link" href="#">all demos</a>
+            <div class="row navbars__inner">
+              <div class="col-6">
+                <h3 class="navbars__inner-title">Homepage electronic v1</h3>
+                <ul class="navbars__inner-list">
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <h3 class="navbars__inner-title">Homepage electronic v2</h3>
+                <ul class="navbars__inner-list">
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="navbars__item"><a class="navbars__link" href="#">pages</a>
+            <div class="row navbars__inner">
+              <ul class="navbars__inner-list">
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbars__item"><a class="navbars__link" href="#">categories</a>
+            <div class="row navbars__inner">
+              <div class="col-4">
+                <h3 class="navbars__inner-title">Homepage electronic v1</h3>
+                <ul class="navbars__inner-list">
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                </ul>
+              </div>
+              <div class="col-4">
+                <h3 class="navbars__inner-title">Homepage electronic v2</h3>
+                <ul class="navbars__inner-list">
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                </ul>
+              </div>
+              <div class="col-4">
+                <h3 class="navbars__inner-title">Homepage electronic v2</h3>
+                <ul class="navbars__inner-list">
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                  <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="navbars__item"><a class="navbars__link" href="#">blog</a>
+            <div class="row navbars__inner">
+              <ul class="navbars__inner-list">
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+                <li class="navbars__inner-item"><a class="navbars__inner-link" href="#">Homepage Electronic</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
+    <div class="site-hero hero">
+      <div id="carouselExampleControls" class="hero__carousel carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="hero__carousel-inner carousel-inner">
+          <div class="hero__carousel-item carousel-item active"> 
+            <div class="hero__container container d-none d-md-block">
+
+              <h2 class="hero__animate-title animate__animated animate__bounce animate__fadeInUp">F<span class="hero__title-small">ROM </span><sup class="hero__title-sup">$</sup><span>2900</span></h2>
+              <h3 class="hero__animate-subtitle animate__animated animate__bounce animate__bounceInLeft">vinova smartphone</h3>
+              <p class="hero__animate-text animate__animated animate__bounce animate__bounceInRight">All‑screen design. Longest battery life ever in an NovaPhone Fastest performance. Studio‑quality photos.</p>
+              <a class="hero__animate-btn animate__animated animate__bounce animate__fadeInDown text-light">shop now</a>
+            </div>
+          </div>
+          <div class="hero__carousel-item carousel-item"> 
+            <div class="hero__container container d-none d-md-block">
+              <h2 class="hero__animate-title animate__animated animate__bounce animate__flipInX">F<span class="hero__title-small">ROM </span><sup class="hero__title-sup">$</sup><span>2900</span></h2>
+              <h3 class="hero__animate-subtitle animate__animated animate__bounce animate__bounceInDown">mackbook air</h3>
+              <p class="hero__animate-text animate__animated animate__bounce animate__fadeInDown">All‑screen design. Longest battery life ever in an NovaPhone Fastest performance. Studio‑quality photos.</p>
+              <a class="hero__animate-btn animate__animated animate__bounce animate__lightSpeedInRight text-light">shop now</a>
+            </div>
+         
+          </div>
+          <div class="hero__carousel-item carousel-item"> 
+            <div class="hero__container container d-none d-md-block">
+              <h2 class="hero__animate-title hero__animate-red animate__animated animate__bounce  animate__fadeInUp">F<span class="hero__title-small">ROM </span><sup class="hero__title-sup">$</sup><span>2900</span></h2>
+              <h3 class="hero__animate-subtitle animate__animated animate__bounce animate__lightSpeedInRight">vinova smartphone</h3>
+              <p class="hero__animate-text animate__animated animate__bounce animate__bounceInLeft">All‑screen design. Longest battery life ever in an NovaPhone Fastest performance. Studio‑quality photos.</p>
+              <a class="hero__animate-btn animate__animated animate__bounce animate__fadeInDown text-light">shop now</a>
+            </div>
+         
+          </div>
+        </div>
+        <button class="hero__carousel-control-prev carousel-control-prev d-none d-md-block" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="hero__carousel-control-prev-icon carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="hero__carousel-control-next carousel-control-next d-none d-md-block" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="hero__carousel-control-next-icon carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
   </section>
+
+  <main id="main">
+    <section class="main__contents contents">
+      <ul class="contents__list row m-0">
+        <li class="contents__item col col-12 col-md-3">
+          <a href="#">
+            <img class="contents__img img-fluid w-100 h-100" src="img/contents-1.jpg" alt="img">
+          </a>
+        </li>
+        <li class="contents__item col col-12 col-md-6 p-md-0 p-3 p-md-0">
+          <a href="#">
+            <img class="contents__img img-fluid w-100 h-100" src="img/contents-2.jpg" alt="img">
+          </a>
+        </li>
+        <li class="contents__item col col-12 col-md-3">
+          <a href="#">
+            <img class="contents__img img-fluid w-100 h-100" src="img/contents-3.jpg" alt="img">
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="desc">
+      <div class="desc__container container">
+        <ul class="desc__list row m-0 text-center">
+          <li class="desc__item col-12 col-md-4">
+            <img class="desc__img" src="img/img1.png" alt="img">
+            <h2 class="desc__title">WORLDWIDE DELIVERY</h2>
+            <p class="desc__text">We work with the biggest delivery networks. It doesn't matter where in the world you are</p>
+          </li>
+          <li class="desc__item col-12 col-md-4">
+            <img class="desc__img" src="img/img2.png" alt="img">
+            <h2 class="desc__title">FREE SHIPPING</h2>
+            <p class="desc__text">We work with the biggest delivery networks. It doesn't matter where in the world you are</p>
+          </li>
+          <li class="desc__item col-12 col-md-4">
+            <img class="desc__img" src="img/img3.png" alt="img">
+            <h2 class="desc__title">MONEY BACK GUARANTEE</h2>
+            <p class="desc__text">We work with the biggest delivery networks. It doesn't matter where in the world you are</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="products__container container">
+        <h2 class="products__title">New Products</h2>
+        <p class="products__text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium. At Nulla id tincidunt ut sed semper vel Lorem condimentum ornare</p>
+        <div id="tabs">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-center tabs-button mb-4">
+
+            <div class="tab mb-2 mb-md-0 whiteborder">all products</div>
+            <div class="tab mb-2 mb-md-0">smartphone</div>
+            <div class="tab mb-2 mb-md-0">tablet</div>
+            <div class="tab mb-2 mb-md-0">audio</div>
+          </div>
+          <div class="tabContent">
+            <ul class="products__list row m-0 justify-content-center">
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tabContent">
+            <ul class="products__list row m-0">
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tabContent">
+            <ul class="products__list row m-0">
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+              <li class="products__item pb-4 col-12 col-md-6 col-lg-4">
+                <a href="#">
+                  <img class="products__img"  src="img/clock1.jpg" alt="clock1">
+                  <div class="products__inner">
+                    <div class="products__icons">
+                      <i class="products__icon fal fa-search"></i>
+                      <i class="products__icon fal fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="products__in pt-3">
+                    <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+                    <ul class="d-flex m-auto justify-content-center my-3">
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                      <li><button class="border-0 bg-transparent opacity-50 fs-6"><i class="fal fa-star"></i></button></li>
+                    </ul>
+                    <div class="d-flex m-auto justify-content-center">
+                      <p class="products__sum">$223.00</p>
+                      <p class="products__sale">$658.00</p>
+                    </div>
+                    <button class="products__in-btn"><i class="fad fa-shopping-bag"></i>ADD TO CART</button>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tabContent">
+
+          </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-center tabs-button my-4">
+          <div class="products__slide-btn products__slide-btn-whiteborder tab whiteborder"></div>
+          <div class="products__slide-btn tab"></div>
+          <div class="products__slide-btn tab"></div>
+          <div class="products__slide-btn tab"></div>
+          <div class="products__slide-btn tab"></div>
+          <div class="products__slide-btn tab"></div>
+          <div class="products__slide-btn tab"></div>
+          <div class="products__slide-btn tab"></div>
+          <div class="products__slide-btn tab"></div>
+        </div>
+      </div>
+    </section>
+
+    <a href="#"><img class="products__phone-img img-fluid" src="img/phone.jpg" alt="phone"></a>
+
+
+    <section class="deals">
+      <div class="deals__container container">
+        <ul class="deals__list row m-0 gap-0">
+          <li class="deals__item col-12 col-md-4 mb-4">
+            <div class="deals__box">
+              <div class="deals__in-box">
+                <div class="deals__inner">
+                  <h2 class="deals__title">417</h2>
+                  <p class="deals__text">days</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">11</h2>
+                  <p class="deals__text">hours</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">41</h2>
+                  <p class="deals__text">mins</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">21</h2>
+                  <p class="deals__text">secs</p>
+                </div>
+              </div>
+              <div class="deals__icons d-flex">
+                <i class="deals__icon fal fa-search"></i>
+                <i class="deals__icon fal fa-heart"></i>
+              </div>
+            </div>
+            <div class="deals__in pt-3 text-center">
+              <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+              <ul class="d-flex m-auto justify-content-center my-3">
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+              </ul>
+              <div class="d-flex m-auto justify-content-center">
+                <p class="products__sum">$223.00</p>
+                <p class="products__sale">$658.00</p>
+              </div>
+              <button class="products__in-btn"><i class="fad fal fa-check"></i>SELECT OPTIONS</button>
+            </div>
+          </li>
+          <li class="deals__item col-12 col-md-4 mb-4">
+            <div class="deals__box">
+              <div class="deals__in-box">
+                <div class="deals__inner">
+                  <h2 class="deals__title">417</h2>
+                  <p class="deals__text">days</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">11</h2>
+                  <p class="deals__text">hours</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">41</h2>
+                  <p class="deals__text">mins</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">21</h2>
+                  <p class="deals__text">secs</p>
+                </div>
+              </div>
+              <div class="deals__icons d-flex">
+                <i class="deals__icon fal fa-search"></i>
+                <i class="deals__icon fal fa-heart"></i>
+              </div>
+            </div>
+            <div class="deals__in pt-3 text-center">
+              <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+              <ul class="d-flex m-auto justify-content-center my-3">
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+              </ul>
+              <div class="d-flex m-auto justify-content-center">
+                <p class="products__sum">$223.00</p>
+                <p class="products__sale">$658.00</p>
+              </div>
+              <button class="products__in-btn"><i class="fad fal fa-check"></i>SELECT OPTIONS</button>
+            </div>
+          </li>
+          <li class="deals__item col-12 col-md-4 mb-4">
+            <div class="deals__box">
+              <div class="deals__in-box">
+                <div class="deals__inner">
+                  <h2 class="deals__title">417</h2>
+                  <p class="deals__text">days</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">11</h2>
+                  <p class="deals__text">hours</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">41</h2>
+                  <p class="deals__text">mins</p>
+                </div>
+                <div class="deals__inner">
+                  <h2 class="deals__title">21</h2>
+                  <p class="deals__text">secs</p>
+                </div>
+              </div>
+              <div class="deals__icons d-flex">
+                <i class="deals__icon fal fa-search"></i>
+                <i class="deals__icon fal fa-heart"></i>
+              </div>
+            </div>
+            <div class="deals__in pt-3 text-center">
+              <a class="products__subtext pb-3">Hiamand Colo Stud Aenean</a>
+              <ul class="d-flex m-auto justify-content-center my-3">
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+                <li><button class="border-0 bg-transparent fs-6"><i class="deals__icon-star fas fa-star"></i></button></li>
+              </ul>
+              <div class="d-flex m-auto justify-content-center">
+                <p class="products__sum">$223.00</p>
+                <p class="products__sale">$658.00</p>
+              </div>
+              <button class="products__in-btn"><i class="fad fal fa-check"></i>SELECT OPTIONS</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="social">
+      <div class="social__container container">
+        <div class="social__content">
+          <ul class="social__list">
+            <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fab fa-facebook-f"></i></a></li>
+            <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fab fa-twitter"></i></a></li>
+            <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fab fa-pinterest"></i></a></li>
+            <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fab fa-vimeo-v"></i></a></li>
+            <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fab fa-instagram"></i></a></li>
+          </ul>
+          <div class="social__inner">
+            <p class="social__text">newsletter</p>
+            <form class="social__form" action="https://echo.htmlacademy.ru/">
+              <div class="social__form-box">
+                <label class="social__form-label" for="email"></label>
+                <input class="social__form-input" id="email" name="email" type="email" placeholder="Enter your email" required>
+              </div>
+              <button class="social__form-btn" type="submit">SUBSCRIBE</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="site-footer footer">
+      <div class="footer__container container mb-lg-5 mb-0">
+        <div class="row">
+          <div class="footer__nav col-12 col-sm-4 col-md-6 col-lg-3 mb-3 mb-lg-0">
+            <h2 class="footer__title">customer service</h2>
+            <ul class="footer__list">
+              <li class="footer__item"><a class="footer__link" href="#">Contact us</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Help and advice</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Shipping & Returns</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Terms and conditions</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Refond Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav col-12 col-sm-4 col-md-6 col-lg-3 mb-3 mb-lg-0">
+            <h2 class="footer__title">INFORMATION</h2>
+            <ul class="footer__list">
+              <li class="footer__item"><a class="footer__link" href="#">About Us</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Testimonials</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">My Account</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Payments & Returns</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">View Catalogues Online</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav col-12 col-sm-4 col-md-6 col-lg-3 mb-3 mb-lg-0">
+            <h2 class="footer__title">ABOUT US</h2>
+            <ul class="footer__list">
+              <li class="footer__item"><a class="footer__link" href="#">Who We Are ?</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Corporate Responsibility</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">California Laws</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Careers</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav col-12 col-sm-4 col-md-6 col-lg-3 mb-3 mb-lg-0">
+            <h2 class="footer__title">CONTACT US</h2>
+            <ul class="footer__list">
+              <li class="footer__item"><a class="footer__link" type="tel:455456332" href="#">(+612) 2531 5600</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">vinova@gmail.com</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">PO Box 1622 Visaosang Street West</a></li>
+              <li class="footer__item"><a class="footer__link" href="#">Opening Hours : 8.00AM - 21.00AM</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__bottom-container container">
+          <div class="footer__bottom-content">
+            <p class="footer__bottom-text">Copyright © 2020 Vinovathemes. All rights reserved.</p>
+            <img class="footer__bottom-img" src="img/company.png" alt="company">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
 </body>

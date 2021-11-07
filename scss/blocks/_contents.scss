@@ -1,0 +1,14 @@
+.contents {
+
+  &__list {
+    padding: 20px 0;
+  }
+
+  &__item {
+    @include card-hover;
+  }
+
+  &__img {
+    height: 50vh;
+  }
+}

@@ -1,0 +1,89 @@
+.footer {
+  padding-top: 55px;
+
+  &__title {
+    font-size: 14px;
+    color: #222;
+    font-weight: 900;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 7px;
+  }
+
+  &__bottom {
+    background-color: #f0f0f0;
+    padding: 28px 0;
+  }
+
+  &__bottom-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__bottom-text {
+    font-size: 14px;
+    color: #666;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  &__nav:nth-child(4) {
+
+    .footer__list {
+
+      
+      .footer__item {
+        display: flex;
+        align-items: center;
+      }
+      
+      .footer__item::before {
+        content: "";
+        width: 18px;
+        height: 18px;
+        margin-right: 17px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      
+      .footer__item:nth-child(1):before {
+        background-image: url("../../img/call.png");
+      }
+      
+      .footer__item:nth-child(2):before {
+        background-image: url("../../img/email.png");
+      }
+      
+      .footer__item:nth-child(3):before {
+        background-image: url("../../img/map.png");
+      }
+      
+      .footer__item:nth-child(4):before {
+        background-image: url("../../img/time.png");
+      }
+    }
+  }
+}
+
+@include breakpoint-down($max-xs) {
+  .footer {
+
+  &__bottom-content {
+    justify-content: center;
+    display: block;
+    text-align: center;
+    }
+
+  &__bottom-text {
+    font-size: 11px;
+    margin-bottom: 16px;
+    }
+  }
+}

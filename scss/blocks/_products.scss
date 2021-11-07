@@ -1,0 +1,210 @@
+#tabs {
+}
+
+#tabs .tab {
+  display: inline-block;
+
+  padding: 11px 25px;
+  cursor: pointer;
+  position: relative;
+  z-index: 5;
+}
+#tabs .tabContent {
+  position: relative;
+  z-index: 1;
+}
+#tabs .hide {
+  display: none;
+}
+#tabs .show {
+  display: block;
+}
+
+.whiteborder {
+  color: #fff;
+  background-color: #105caa !important;
+}
+
+.tab {
+  height: 38px;
+  margin-right: 10px;
+  display: inline-block;
+  background-color: #ccc;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 11px 0;
+  min-width: 140px;
+  border: none;
+  text-align: center;
+  border-radius: 40px !important;
+  transition: background-color 0.4s ease, color 0.4s ease;
+
+  &:hover {
+    background-color: #105caa;
+    color: #fff;
+  }
+}
+
+.products {
+
+  &__title {
+    font-weight: 700;
+    font-size: 26px;
+    color: #222;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  &__text {
+    text-align: center;
+    display: block;
+    font-size: 13px;
+    color: #666;
+    font-weight: 400;
+    margin: 0 auto;
+    width: 44%;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 45px;
+  }
+
+  &__inner {
+    background-repeat: no-repeat;
+    background-image: url("../../img/clock-2.jpg");
+    padding: 16px;
+    background-size: 350px 350px;
+    background-position: center top 16px;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 380px;
+    height: 380px;
+    z-index: 0;
+    opacity: 0;
+    box-shadow: 0 0 30px 0.1px #ccc;
+    transition: all 0.4s ease;
+  }
+
+  &__item {
+    padding: 16px;
+    position: relative;
+    background-color: #fff;
+    width: 380px;
+    height: 380px;
+
+  
+  &:hover .products__inner {
+    opacity: 1;
+    z-index: 20;
+    background-color: #fff;
+    height: 585px;
+    transition: all 0.5s ease;
+    }
+    
+    &:hover .products__icons {
+      top: 300px;
+    }
+
+    &:hover .products__in {
+      opacity: 1;
+      display: block;
+      z-index: 200;
+    }
+  }
+
+  &__icons {
+    position: absolute;
+    top: 380px;
+    left: 50%;
+    display: flex;
+    transform: translateX(-50%);
+    transition: top 0.4s ease;
+  }
+  
+  &__icon {
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+      background-color: #105caa;
+      color: #fff;
+    }
+  }
+
+  &__in {
+    display: none;
+    position: relative;
+    z-index: -500;
+    opacity: 0;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__subtext {
+    cursor: pointer;
+    color: #222;
+    font-weight: 700;
+  }
+
+  &__sum {
+    font-size: 13px;
+    font-weight: 900;
+    color: #222;
+  }
+
+  &__sale {
+    opacity: .5;
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: line-through;
+  }
+
+  &__in-btn {
+    border: none;
+    background-color: #f2f2f2;
+    color: #444;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 12px 35px;
+    border-radius: 40px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: $back-primary;
+      color: #fff;
+    }
+  }
+
+  &__in-btn .fad {
+    margin-right: 5px;
+  }
+
+  &__slide-btn-whiteborder {
+    background-color: #fd6666 !important;
+  }
+
+  &__slide-btn {
+    min-width: 15px;
+    height: 15px;
+    border-radius: 50% !important;
+    padding: 0 0;
+
+    &:hover {
+      background-color: #fb6666  !important;
+    }
+  }
+
+  &__phone-img {
+    @include card-hover;
+  }
+}
